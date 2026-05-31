@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+    color: #ffffff;
+    overflow-x: hidden;
+    perspective: 1000px;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    border: 2px solid #4fc3f7;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(79, 195, 247, 0.3);
+    z-index: 100;
+}
+
+.back-button:hover {
+    transform: translateY(-3px) rotateX(10deg);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(79, 195, 247, 0.5);
+}
+
+.back-content {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.back-icon {
+    font-size: 1.2rem;
+}
+
+.back-text {
+    font-size: 0.9rem;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 600px;
+    margin: 80px auto 0;
+    transform-style: preserve-3d;
+    animation: formAppear 1s ease-out;
+}
+
+
+
+/* Form Header */
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+    transform: translateZ(30px);
+}
+
+.form-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #4fc3f7;
+    text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
+    margin-bottom: 10px;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.form-subtitle {
+    font-size: 1.1rem;
+    color: #81d4fa;
+    opacity: 0.8;
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.5); }
+    100% { text-shadow: 0 0 30px rgba(79, 195, 247, 0.8), 0 0 40px rgba(79, 195, 247, 0.3); }
+}
+
+/* Email Form */
+
+
+.email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Form Groups */
+.form-group {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #4fc3f7;
+    font-size: 0.95rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.3), rgba(1, 87, 155, 0.3));
+    border: 2px solid rgba(79, 195, 247, 0.4);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #4fc3f7;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(79, 195, 247, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-select option {
+    background: #0d47a1;
+    color: #ffffff;
+}
+
+/* Input Glow Effect */
+.input-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background: linear-gradient(45deg, transparent, rgba(79, 195, 247, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group:focus-within .input-glow {
+    opacity: 1;
+    animation: inputGlow 2s ease-in-out infinite;
+}
+
+@keyframes inputGlow {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+/* Submit Button */
+.submit-button {
+    position: relative;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    border: 3px solid #4fc3f7;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(79, 195, 247, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.submit-button:hover {
+    transform: translateY(-5px) rotateX(10deg);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(79, 195, 247, 0.5),
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.submit-button:active {
+    transform: translateY(-2px) rotateX(5deg);
+}
+
+.button-text {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Particles */
+.button-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #4fc3f7;
+    border-radius: 50%;
+    animation: particleFloat 3s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    animation-delay: 0.5s;
+}
+
+.particle:nth-child(3) {
+    top: 80%;
+    left: 30%;
+    animation-delay: 1s;
+}
+
+.particle:nth-child(4) {
+    top: 40%;
+    left: 70%;
+    animation-delay: 1.5s;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-10px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+.back-btn {
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.back-btn:hover {
+    background: rgba(74, 144, 226, 0.1);
+    transform: translateX(-5px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+.library-logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4a90e2;
+    text-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+}
+
+.detail-header {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.detail-nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation-footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid rgba(74, 144, 226, 0.2);
+    margin-top: 60px;
+}
+
+.navigation-footer p {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Entry - IMSFF - Brain Talks</title>
+    <link rel="stylesheet" href="submit.css">
+</head>
+<body>
+    <div class="container">
+        <header class="detail-header">
+            <nav class="detail-nav">
+                <a href="intlmsff.html" class="back-btn">← Back</a>
+                <div class="library-logo">Brain Talks</div>
+            </nav>
+        </header>
+
+        <div class="form-container">
+            <div class="form-header">
+                <h1 class="form-title">Submit Entry: IMSFF</h1>
+                <p class="form-subtitle">Deadline: 30th July 2026, 23:59 UTC</p>
+            </div>
+
+            <div class="email-form-wrapper">
+                <form class="email-form" id="imsffForm">
+                    <input type="hidden" name="competition" value="IMSFF">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" id="country" name="country" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="movieTitle" class="form-label">Movie Title</label>
+                        <input type="text" id="movieTitle" name="movieTitle" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category" class="form-label">Category</label>
+                        <select id="category" name="category" class="form-select" required>
+                            <option value="">Select Category</option>
+                            <option value="Short Film">Social Activisim Section </option>
+                            <option value="Long Film">The Scientific Section</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="link" class="form-label">Link to Film (Google Drive/YouTube)</label>
+                        <input type="url" id="link" name="link" class="form-input" required>
+                    </div>
+
+                    <button type="submit" class="submit-button">Submit Entry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="navigation-footer">
+        <img src="BT logo.png" alt="Brain Talks Logo"> 
+        <br>
+        <br>
+        <p>&copy; 2026 Brain Talks. All rights reserved.</p>
+    </footer>
+    <script src="submit.js"></script>
+</body>
+</html>
